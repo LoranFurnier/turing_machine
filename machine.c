@@ -7,13 +7,13 @@ int main(int argc, char *argv[]){
     char *path;
     file = fopen(argv[1], "rb");
     path="0";
-    while(f1==NULL){
+    while(file==NULL){
     if (path!="0"){
-        printf("You're not a good comrade, i see... '%s' isn't file we look for\n", &path);
+        printf("WRONG ONE!\nWE DON'T LOOK FOR '%s'\n", &path);
      }
-     printf("Be a good comrade and show the KGB your file: ");
+     printf("TYPE HERE THE PATH TO YOUR FILE: ");
      scanf("%s", &path);
-     f1 = fopen(&path, "rb");
+     file = fopen(&path, "rb");
    }
     fgets(command, 255, file);
     
