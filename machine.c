@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define plus 25
+#define plus 10
 FILE *file;
     char command[255];
     char *path;
@@ -68,7 +68,43 @@ int main(int argc, char *argv[]){
     }
     while(!feof(file)){
         fgets(command, 255, file);
-       
+        switch(command){
+            case 'inc':
+            case 'INC':
+            {
+                inc();
+                break;
+            }
+            case 'dec':
+            case 'DEC':
+            {
+                dec();
+                break;
+            }
+            case 'movl':
+            case 'MOVL':
+            {
+                movl();
+                break;
+            }
+            case 'movr':
+            case 'MOVR':
+            {
+                movr();
+                break;
+            }
+            case 'print':
+            case 'PRINT':
+            {
+                show();
+                break;
+            }
+            case 'get':
+            case 'GET':
+            {
+                capture();
+                break;
+            }
     }
     fclose(file);
 }
