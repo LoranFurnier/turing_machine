@@ -1,0 +1,11 @@
+inc
+inc
+inc
+movr
+inc
+dec
+movl
+dec
+dec
+dec
+movl
