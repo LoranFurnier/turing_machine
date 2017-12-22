@@ -8,12 +8,18 @@ FILE *file;
     int place=0;
     int size=10;
 void movl(){
+    int i, a;
     place--;
     if(place<0){
         size+=plus;
         band = (int *)realloc(band, size * sizeof(int));
         printf("\nATTENTION!\nTO DO A 'MOVL' COMMAND WE MOVE ALL THE BAND TO THE RIGHT\nNOW ALL THE PLACES HAVE NEW NUMBERS, WHICH DIFFERS IN '%d'", plus);
         place+=plus;
+        for(i=0; i<size; i++){
+            a = band[i];
+            band[i] = band[plus+i];
+            band[plus+i] = a;
+        }
     }
     printf("\nNOW YOU ARE IN CELL №%d", place);
 }
