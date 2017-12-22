@@ -66,15 +66,15 @@ void showchar(){
     printf("\nATTENTION!\nTHE 'PRINT' COMMAND IS BEING CALLED!\nCELL ¹%d ASCII VALUE IS %c", place, (char)band[place]);
 }
 int main(int argc, char *argv[]){
-    file = fopen(argv[1], "rb");
+    file = fopen(argv[1], "r");
     path="0";
     while(file==NULL){
        if (strcmp(path, "0")!=0){
             printf("WRONG ONE!\nWE DON'T LOOK FOR '%s'\n", path);
        }
        printf("TYPE HERE THE PATH TO YOUR FILE: ");
-       scanf("%s", path);
-       file = fopen(path, "rb");
+       scanf("%s", &path);
+       file = fopen(&path, "r");
     }
     while(!feof(file)){
         fgets(command, 254, file);
