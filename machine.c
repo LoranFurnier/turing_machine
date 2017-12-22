@@ -64,8 +64,26 @@ void capture(){
 void showchar(){
     printf("\nATTENTION!\nTHE 'PRINT' COMMAND IS BEING CALLED!\nCELL №%d ASCII VALUE IS %c", place, (char)band[place]);
 }
+int argument(char *str){
+    if((str=="inc") || (str=="INC")){
+        return 1;
+    } else if((str=="dec") || (str=="DEC")){
+        return 2;
+    } else if((str=="movl") || (str=="MOVL")){
+        return 3;
+    } else if((str=="movr") || (str=="MOVR")){
+        return 4;
+    } else if((str=="print") || (str=="PRINT")){
+        return 5;
+    } else if((str=="get") || (str=="GET")){
+        return 6;
+    } else if((str=="printc") || (str=="PRINTC")){
+        return 7;
+    }
+    return 0;
+}
 int main(int argc, char *argv[]){
-    file = fopen(argv[1], "rb");
+    file = fopen(&argv[1], "rb");
     path="0";
     while(file==NULL){
        if (path!="0"){
@@ -76,46 +94,39 @@ int main(int argc, char *argv[]){
        file = fopen(&path, "rb");
     }
     while(!feof(file)){
-        fgets(command, 255, file);
-        switch(*command){
-            case 'inc':
-            case 'INC':
+        fgets(&command, 254, file);
+        switch(argument(command)){
+            case 1:
             {
                 inc();
                 break;
             }
-            case 'dec':
-            case 'DEC':
+            case 2:
             {
                 dec();
                 break;
             }
-            case 'movl':
-            case 'MOVL':
+            case 3:
             {
                 movl();
                 break;
             }
-            case 'movr':
-            case 'MOVR':
+            case 4:
             {
                 movr();
                 break;
             }
-            case 'print':
-            case 'PRINT':
+            case 5:
             {
                 show();
                 break;
             }
-            case 'get':
-            case 'GET':
+            case 6:
             {
                 capture();
                 break;
             }
-            case 'printc':
-            case 'PRINTC':
+            case 7:
             {
                 showchar();
                 break;
@@ -123,4 +134,5 @@ int main(int argc, char *argv[]){
     }
     fclose(file);
 }
+return 0;
 }
