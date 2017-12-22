@@ -111,6 +111,9 @@ int main(int argc, char *argv[]){
                 capture();
                 break;
             }
+            case 'printc':
+            case 'PRINTC':
+            {
     }
     fclose(file);
 }
