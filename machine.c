@@ -77,7 +77,7 @@ int main(int argc, char *argv[]){
     }
     while(!feof(file)){
         fgets(command, 255, file);
-        switch(command){
+        switch(*command){
             case 'inc':
             case 'INC':
             {
@@ -122,4 +122,5 @@ int main(int argc, char *argv[]){
             }
     }
     fclose(file);
+}
 }
