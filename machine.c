@@ -61,6 +61,9 @@ void capture(){
         band[place]=0;
     }
 }
+void showchar(){
+    printf("\nATTENTION!\nTHE 'PRINT' COMMAND IS BEING CALLED!\nCELL №%d ASCII VALUE IS %c", place, (char)band[place]);
+}
 int main(int argc, char *argv[]){
     file = fopen(argv[1], "rb");
     path="0";
@@ -114,6 +117,9 @@ int main(int argc, char *argv[]){
             case 'printc':
             case 'PRINTC':
             {
+                showchar();
+                break;
+            }
     }
     fclose(file);
 }
